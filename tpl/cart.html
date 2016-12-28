@@ -1,0 +1,23 @@
+<h2>所有商品</h2>
+<table border="1">
+    <tr>
+        <td>商品id</td>
+        <td>名称</td>
+        <td>价格</td>
+        <td>数量</td>
+        <td>小计</td>
+    </tr>
+    <tr ng-repeat="i in items" ng-if="i.num">
+        <td>{{i.id}}</td>
+        <td>{{i.title | shenglue}}</td>
+        <td>{{i.price}}</td>
+        <td>
+            <button ng-click="i.num=i.num-1">----</button>
+            <input type="text" ng-model="i.num">
+            <button ng-click="i.num=i.num+1">+++</button>
+        </td>
+        <td>{{i.price * i.num | currency}}</td>
+    </tr>
+</table>
+<button ng-click="pay()">买买买</button>
+<button ng-click="qing()">清空购物车</button>
